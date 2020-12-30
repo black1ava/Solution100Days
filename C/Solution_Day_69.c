@@ -19,6 +19,9 @@ int roomAcquired(interval list[], int length){
     for(int j = i + 1; j < length; j++){
       if(!overlap(list[i], list[j])){
         count++;
+        break;
+      }else{
+        break;
       }
     }
   }
@@ -27,9 +30,8 @@ int roomAcquired(interval list[], int length){
 
 int main(){
   
-  interval list[] = {{30, 75}, {0, 50}, {60, 150}};
+  interval list[] = {{30, 75}, {0, 50}, {60, 95}};
   int length = sizeof(list) / sizeof(list[0]);
-  int rooms = roomAcquired(list, length);
-  printf("%d", rooms);
+  printf("%d", roomAcquired(list, length));
   return 0;
 }
