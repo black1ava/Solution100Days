@@ -12,7 +12,7 @@ int main(){
   
   char fileName[100], singleLine[100], newSingleLine[100];
   int menu, length, index = 0, count = 0;
-  char chr;
+  char chr[2], ch;
   printf("Input your file name: ");
   scanf("%s", fileName);
   
@@ -27,7 +27,7 @@ int main(){
       
     case 1 :
     printf("Input a character you want to remove : ");
-    scanf("%c", &chr);
+    scanf("%s", chr);
     
     filePointer = fopen(fileName, "r+");
     
@@ -37,7 +37,7 @@ int main(){
       int length = strlen(singleLine);
       
       for(int i = 0; i < length; i++){
-        if(singleLine[i] != chr){
+        if(singleLine[i] != chr[0]){
           newSingleLine[index] = singleLine[i];
           index++;
         }
@@ -59,8 +59,8 @@ int main(){
       
       for(int i = 0; i < length; i++){
         if(singleLine[i] != '\n'){
-          chr = tolower(singleLine[i]);
-          newSingleLine[index] = chr;
+          ch = tolower(singleLine[i]);
+          newSingleLine[index] = ch;
           index++;
         }
       }
@@ -81,8 +81,8 @@ int main(){
       
       for(int i = 0; i < length; i++){
         if(singleLine[i] != '\n'){
-          chr = toupper(singleLine[i]);
-          newSingleLine[index] = chr;
+          ch = toupper(singleLine[i]);
+          newSingleLine[index] = ch;
           index++;
         }
       }
