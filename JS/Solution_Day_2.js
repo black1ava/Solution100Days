@@ -12,13 +12,13 @@ let match = (root, key) => {
   }
   
   return root.data === key && match(root.left, key) && match(root.right, key);
-}
+};
 
 let matching = root => {
   let key = root.data;
   
   return match(root, key);
-}
+};
 
 let checking = (root, branch) => {
   if(root === null){
@@ -31,13 +31,13 @@ let checking = (root, branch) => {
   
   checking(root.left, branch);
   checking(root.right, branch);
-}
+};
 
 let start = root => {
   let branch = { count : 0};
   count = checking(root, branch);
   return branch.count;
-}
+};
 
 let head = null;
 
