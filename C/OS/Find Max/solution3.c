@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<limits.h>
 
-#define L 6
 int max = INT_MIN;
 
 typedef struct node {
@@ -46,11 +45,14 @@ int main(){
   node *head = NULL;
   node *temp;
   
-  int n;
+  int n, length;
   
-  printf("Input 6 integers in one line seperate by space : ");
+  printf("Numbers in the list : ");
+  scanf("%d", &length);
   
-  for(int i = 0; i < L; i++){
+  printf("Input %d integers in one line seperate by space : ", length);
+  
+  for(int i = 0; i < length; i++){
     
     scanf("%d", &n);
     temp = insert(n);
