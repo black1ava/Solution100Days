@@ -26,20 +26,17 @@ void showNode(node *node){
 
 node *deleteNode(node *head, int k){
   if(head != NULL){
-    node *temp = (node *)malloc(sizeof(node));
     if(head -> data == k){
-      temp = head -> next;
-      head = temp;
-      return head;
+      node *temp = head -> next;
+      return temp;
     }
-    
     if(head -> next -> data == k){
-      temp = head -> next -> next;
-      head -> next = temp;
+      head -> next  = head -> next -> next;
       return head;
     }
     
-    return deleteNode(head -> next, k);
+    head -> next = deleteNode(head -> next, k);
+    return head;
   }
   return head;
 }
@@ -51,15 +48,14 @@ int main(){
     root = addNode(root, i);
   }
   
-  /*for(int i = 2; i <= 100; i++){
+  for(int i = 2; i <= 100; i++){
     for(int j = 2; j <= 50; j++){
-      if((i * j) <= 100){
-        root = deleteNode(root, i * j);
+      if(i != j && i > j && !(i % j)){
+        root = deleteNode(root, i);
+        break;
       }
     }
-  }*/
-  
-  root = deleteNode(root, 2);
+  }
   
   showNode(root);
   
